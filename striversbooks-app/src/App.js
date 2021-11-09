@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import MyNavbar from './Components/MyNavbar'
 import Welcome from './Components/Welcome'
 import Footer from './Components/Footer'
+import Tapestry from './Components/Tapestry'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       browselink="browse"
       />
       <Welcome />
+      <Tapestry />
       <Footer />
     </div>
   )
