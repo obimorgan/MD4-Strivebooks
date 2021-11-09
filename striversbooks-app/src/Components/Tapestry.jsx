@@ -1,7 +1,7 @@
 /** @format */
 
 import Card from "react-bootstrap/Card";
-import { Container, Button, Row, Col } from "react-bootstrap";
+import { Container, Button, Row, Col, H1 } from "react-bootstrap";
 import items from "../Data/scify.json";
 
 // class Tapestry extends Component {
@@ -42,8 +42,10 @@ import items from "../Data/scify.json";
 
 const Tapestry = (props) => (
   <Container>
+        <h1>Latest Release</h1>
     <Row>
       <Col className="d-flex flex-wrap">
+        
         {items.map((item) => (
           <Card style={{ width: "12rem",}}
           className="col-xs-3 col-sm-4 col-md-3 px-n1"
