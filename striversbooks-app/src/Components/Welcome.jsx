@@ -8,8 +8,7 @@ const Welcome = (props) => (
     <Container>
       <h1>Strive Books</h1>
       <p>
-        This is a modified jumbotron that occupies the entire horizontal space
-        of its parent.
+      First recorded in 1175–1225; Middle English striven from Old French estriver “to quarrel, compete, strive” from Germanic; compare obsolete Dutch strijven, German streben “to strive”.
       </p>
     </Container>
   </Jumbotron>

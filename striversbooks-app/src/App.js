@@ -8,7 +8,12 @@ import Footer from './Components/Footer'
 function App() {
   return (
     <div>
-      <MyNavbar brand="Strivers-Books" />
+      <MyNavbar 
+      brand="Strivers-Books"
+      homelink="Home"
+      aboutlink="About"
+      browselink="browse"
+      />
       <Welcome />
       <Footer />
     </div>
