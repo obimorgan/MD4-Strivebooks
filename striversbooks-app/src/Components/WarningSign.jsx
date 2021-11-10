@@ -2,9 +2,9 @@
 
 import Alert from "react-bootstrap/Alert";
 
-const WarningSign = ({text}) => (
-  <Alert className="alert-danger">
-    {text}
+const WarningSign = ({ content }) => (
+  <Alert variant="danger">
+    {content}
   </Alert>
 )
 

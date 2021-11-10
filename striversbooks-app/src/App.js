@@ -5,25 +5,27 @@ import Welcome from './Components/Welcome'
 import Footer from './Components/Footer'
 import Tapestry from './Components/Tapestry'
 import WarningSign from './Components/WarningSign'
+import MyBadge from './Components/MyBadge'
 
 
 
 function App() {
   return (
     <div>
-      <MyNavbar 
-      brand="Strivers-Books"
-      homelink="Home"
-      aboutlink="About"
-      browselink="browse"
+      <MyNavbar
+        brand="Strivers-Books"
+        homelink="Home"
+        aboutlink="About"
+        browselink="browse"
       />
-      
+
       <Welcome />
-      <WarningSign 
-      text="Warning"
+      <WarningSign
+        content="Warning"
       />
+      <MyBadge content="BADGE!" colour="pink" />
       <Tapestry />
-      
+
       <Footer />
     </div>
   )
