@@ -3,10 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import MyNavbar from './Components/MyNavbar'
 import Welcome from './Components/Welcome'
 import Footer from './Components/Footer'
-import Tapestry from './Components/Tapestry'
+import BookList from './Components/BookList'
 import WarningSign from './Components/WarningSign'
 import MyBadge from './Components/MyBadge'
-import SingleBook from './Components/SingleBook'
+// import SingleBook from './Components/SingleBook'
 
 
 
@@ -25,8 +25,8 @@ function App() {
         content="Warning"
       />
       <MyBadge content="BADGE!" colour="pink" />
-      <SingleBook />
-      <Tapestry />
+      {/* <SingleBook /> */}
+      <BookList />
 
       <Footer />
     </div>
