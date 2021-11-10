@@ -4,6 +4,7 @@ import MyNavbar from './Components/MyNavbar'
 import Welcome from './Components/Welcome'
 import Footer from './Components/Footer'
 import Tapestry from './Components/Tapestry'
+import WarningSign from './Components/WarningSign'
 
 
 
@@ -16,7 +17,7 @@ function App() {
       aboutlink="About"
       browselink="browse"
       />
-
+      <WarningSign />
       <Welcome />
       <Tapestry />
       
