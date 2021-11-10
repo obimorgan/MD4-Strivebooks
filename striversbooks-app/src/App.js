@@ -17,8 +17,11 @@ function App() {
       aboutlink="About"
       browselink="browse"
       />
-      <WarningSign />
+      
       <Welcome />
+      <WarningSign 
+      text="Warning"
+      />
       <Tapestry />
       
       <Footer />

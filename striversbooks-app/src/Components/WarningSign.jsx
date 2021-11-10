@@ -2,10 +2,10 @@
 
 import Alert from "react-bootstrap/Alert";
 
-const WarningSign = (props) => {
-  <Alert key={idx} variant={danger}>
-    {props.text}
-  </Alert>;
-};
+const WarningSign = ({text}) => (
+  <Alert className="alert-danger">
+    {text}
+  </Alert>
+)
 
 export default WarningSign
