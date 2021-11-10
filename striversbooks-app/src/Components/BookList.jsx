@@ -14,8 +14,9 @@ class BookList extends Component {
     state = {
         selectedBook: null,
         bookQuery: '',
-        bookArr: this.booQuery ? [] : items
+
     }
+    bookArr = items
     searchBook = () => {
         this.setState(
             this.state.bookArr = items.filter(b => b.title.includes(this.state.bookQuery))
@@ -37,7 +38,7 @@ class BookList extends Component {
                 <Row>
 
                     <Col className="d-flex flex-wrap">
-                        {this.state.bookArr.map((item) => (
+                        {this.bookArr.map((item) => (
                             <SingleBook bookObj={item} />
                         ))}
                     </Col>
