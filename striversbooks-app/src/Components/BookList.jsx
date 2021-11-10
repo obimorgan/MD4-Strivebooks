@@ -17,23 +17,21 @@ class BookList extends Component {
     }
 
     bookArr = items
-    searchBook = () => {
+    searchBook = (e) => {
+        e.preventDefault()
         this.setState(
-            this.state.bookArr = items.filter(b => b.title.includes(this.state.bookQuery))
+            this.bookArr = items.filter(b => b.title.toLowerCase().includes(this.state.bookQuery))
         )
     }
-
-
-
 
     render() {
         return (
             <Container>
-                <Form className="mt-3 mb-3" onSubmit={this.searchBook}>
+                <Form className="mt-3 mb-3" onInput={this.searchBook}>
                     <FormControl type="text" placeholder="Search" className="m  r-sm-2 mb-2" value={this.state.bookQuery} onChange={(e) => this.setState({
-                        bookQuery: e.target.value
+                        bookQuery: e.target.value.toLowerCase()
                     })} />
-                    <Button variant="outline-success" onClick={this.searchBook}>Search</Button>
+                    <Button variant="outline-primary" onClick={this.searchBook}>Search</Button>
                 </Form>
                 <Row>
 
@@ -49,30 +47,4 @@ class BookList extends Component {
     }
 }
 
-// const Tapestry = (props) => (
-//   <Container>
-//     <h1>Latest Release</h1>
-//     <Row>
-//       <Col className="d-flex flex-wrap">
-//         {items.map((item) => (
-//           <Card
-//             style={{ width: "10rem", height: "15rem"}}
-//             className="px-n1"
-//             key={item.asin}
-//           >
-//             <Card.Img variant="top" src={item.img} className="img-fluid" />
-//             {/* <Card.Body> */}
-//               {/* <Card.Title className="mx-n3 my-n2">{item.title}</Card.Title> */}
-//               {/* <Card.Text>
-//                 Some quick example text to build on the card title and make up
-//                 the bulk of the card's content.
-//               </Card.Text> */}
-//               {/* <Button variant="primary">Go somewhere</Button> */}
-//             {/* </Card.Body> */}
-//           </Card>
-//         ))}
-//       </Col>
-//     </Row>
-//   </Container>
-// );
 export default BookList;

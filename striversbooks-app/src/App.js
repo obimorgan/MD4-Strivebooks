@@ -22,9 +22,8 @@ function App() {
 
       <Welcome />
       <WarningSign
-        content="Warning"
+        content="careful what you search for..."
       />
-      <MyBadge content="BADGE!" colour="pink" />
       {/* <SingleBook /> */}
       <BookList />
 
