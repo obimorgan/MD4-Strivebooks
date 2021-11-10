@@ -1,6 +1,7 @@
 /** @format */
 import Card from 'react-bootstrap/Card'
-import {Button} from 'react-bootstrap'
+import Button from 'react-bootstrap/Button';
+
 
 const Footer = (props) => (
   <Card className="text-center">

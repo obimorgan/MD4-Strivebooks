@@ -6,6 +6,7 @@ import Footer from './Components/Footer'
 import Tapestry from './Components/Tapestry'
 
 
+
 function App() {
   return (
     <div>
@@ -15,9 +16,10 @@ function App() {
       aboutlink="About"
       browselink="browse"
       />
-      
+
       <Welcome />
       <Tapestry />
+      
       <Footer />
     </div>
   )
