@@ -14,8 +14,8 @@ class BookList extends Component {
     state = {
         selectedBook: null,
         bookQuery: '',
-
     }
+
     bookArr = items
     searchBook = () => {
         this.setState(
