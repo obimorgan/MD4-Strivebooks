@@ -28,8 +28,15 @@
   color: #61dafb;
 }
 .book-cover {
-  max-width: 250px;
-  object-fit: cover;
+  max-width: 200px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.book-cover img {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
 }
 
 @keyframes App-logo-spin {

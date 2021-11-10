@@ -1,31 +1,50 @@
 /** @format */
 
-import { Container, Row, Col,} from "react-bootstrap";
-import {Component} from "react"
+import { Container, Row, Col, } from "react-bootstrap";
+import { Component } from "react"
 import items from "../Data/scify.json";
 import SingleBook from "./SingleBook";
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import FormControl from 'react-bootstrap/FormControl'
 
 
 
 class BookList extends Component {
     state = {
-
-        selectedBook : null
+        selectedBook: null,
+        bookQuery: '',
+        bookArr: this.booQuery ? [] : items
     }
+    searchBook = () => {
+        this.setState(
+            this.state.bookArr = items.filter(b => b.title.includes(this.state.bookQuery))
+        )
+    }
+
+
+
+
     render() {
-        return(
+        return (
             <Container>
+                <Form className="mt-3 mb-3" onSubmit={this.searchBook}>
+                    <FormControl type="text" placeholder="Search" className="m  r-sm-2 mb-2" value={this.state.bookQuery} onChange={(e) => this.setState({
+                        bookQuery: e.target.value
+                    })} />
+                    <Button variant="outline-success" onClick={this.searchBook}>Search</Button>
+                </Form>
                 <Row>
-                   
+
                     <Col className="d-flex flex-wrap">
-                        {items.map((item) => (
-                        <SingleBook bookObj={item} />
+                        {this.state.bookArr.map((item) => (
+                            <SingleBook bookObj={item} />
                         ))}
                     </Col>
                 </Row>
             </Container>
         )
-        
+
     }
 }
 
