@@ -6,6 +6,7 @@ import Footer from './Components/Footer'
 import Tapestry from './Components/Tapestry'
 import WarningSign from './Components/WarningSign'
 import MyBadge from './Components/MyBadge'
+import SingleBook from './Components/SingleBook'
 
 
 
@@ -24,6 +25,7 @@ function App() {
         content="Warning"
       />
       <MyBadge content="BADGE!" colour="pink" />
+      <SingleBook />
       <Tapestry />
 
       <Footer />
