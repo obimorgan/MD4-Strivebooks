@@ -18,10 +18,10 @@ class CommentArea extends Component {
       const response = await fetch(
         "https://striveschool-api.herokuapp.com/api/comments/" + this.props.id,
         {
-          method: "GET",
-          headers: {
+            method: "GET",
+            headers: {
             "Authorization":
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhjYmFhY2FhMjAwMTU1MmExNjAiLCJpYXQiOjE2MzU5NDQ2NTEsImV4cCI6MTYzNzE1NDI1MX0.Yx0HpjxBSTDpOzS9KLvXiaWGib-fUvlk1UeiaQ_zQxg",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhjYmFhY2FhMjAwMTU1MmExNjAiLCJpYXQiOjE2MzU5NDQ2NTEsImV4cCI6MTYzNzE1NDI1MX0.Yx0HpjxBSTDpOzS9KLvXiaWGib-fUvlk1UeiaQ_zQxg",
           },
         }
       );
@@ -39,7 +39,7 @@ class CommentArea extends Component {
   render() {
       return (
         <ListGroup>
-        {this.state.comments &&
+        {
         this.state.comments.map(comment => (
           <CommentsList comment={comment}/>
         ))}
