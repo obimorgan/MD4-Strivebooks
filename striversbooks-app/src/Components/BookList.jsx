@@ -34,7 +34,7 @@ class BookList extends Component {
                     .filter(item => item.title.toLowerCase().indexOf(this.state.search) !== -1 
                     || item.category.toLowerCase().indexOf(this.state.search) !== -1)
                     .map(item => (
-                        <SingleBook key={item.asin} bookInfo={item} />
+                        <SingleBook bookInfo={item} />
                     ))}
                 </Row>
             </Container>

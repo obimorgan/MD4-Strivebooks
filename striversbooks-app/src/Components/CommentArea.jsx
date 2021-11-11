@@ -41,7 +41,7 @@ class CommentArea extends Component {
         <ListGroup>
         {this.state.comments &&
         this.state.comments.map(comment => (
-          <CommentsList comment={comment} />
+          <CommentsList comment={comment}/>
         ))}
         </ListGroup>
       )

@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 class  CommentsList extends Component {
     render() {
         return (
-            <ListGroup.Item>
+            <ListGroup.Item key={this.props.comment._id}>
                 {this.props.comment.rate}
                 {this.props.comment.comment}
             </ListGroup.Item>
