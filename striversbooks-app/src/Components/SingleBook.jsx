@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import React, { Component } from "react";
 import Col from "react-bootstrap/Col";
 import MyBadge from "./MyBadge";
+import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
     state = {
@@ -25,6 +26,7 @@ class SingleBook extends Component {
                     {this.props.bookInfo.category} - ${this.props.bookInfo.price} 
                     </Card.Text>
                 </Card.Body>
+                <CommentArea id={this.props.bookInfo.asin}/>
                 </Card>
             </Col>
         )

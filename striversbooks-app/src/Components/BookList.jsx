@@ -30,6 +30,7 @@ class BookList extends Component {
                 </Row>
                 <Row>
                     {this.state.books
+                    .slice(0,20)
                     .filter(item => item.title.toLowerCase().indexOf(this.state.search) !== -1 
                     || item.category.toLowerCase().indexOf(this.state.search) !== -1)
                     .map(item => (
