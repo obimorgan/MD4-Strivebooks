@@ -6,7 +6,7 @@ import CommentsList from "./CommentsList";
 
 class CommentArea extends Component {
   state = {
-    comments: [],
+    comments: []
   };
 
   componentDidMount () {
