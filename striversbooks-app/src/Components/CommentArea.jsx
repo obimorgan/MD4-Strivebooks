@@ -3,6 +3,7 @@
 import { Component } from "react";
 import { ListGroup } from "react-bootstrap";
 import CommentsList from "./CommentsList";
+import AddComments from "./AddComments";
 
 class CommentArea extends Component {
   state = {
@@ -39,10 +40,7 @@ class CommentArea extends Component {
   render() {
       return (
         <ListGroup>
-        {
-        this.state.comments.map(comment => (
-          <CommentsList comment={comment}/>
-        ))}
+            <CommentsList displayComments={this.state.comments} /> 
         </ListGroup>
       )
   }

@@ -1,15 +1,19 @@
-import {Component} from  'react'
 import ListGroup from 'react-bootstrap/ListGroup'
+import SingleComment from './SingleComment'
 
-class  CommentsList extends Component {
-    render() {
-        return (
-            <ListGroup.Item key={this.props.comment.asin}>
-                {this.props.comment.rate}
-                {this.props.comment.comment}
-            </ListGroup.Item>
-        )
-    }
-}
+const CommentsList = ({displayComments}) => (
+    <>
+        {
+
+            displayComments.map(comment => (
+                <ListGroup.Item >
+                    <SingleComment key={comment._id} comment={comment}/>
+                </ListGroup.Item>
+            ))
+
+        }
+    </>
+
+)
 
 export default CommentsList

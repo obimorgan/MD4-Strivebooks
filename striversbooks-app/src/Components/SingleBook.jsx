@@ -37,7 +37,7 @@ class SingleBook extends Component {
                 {
                     this.state.selected && 
                     <Form.Group>
-                        <Form.Control type="text" placeholder="Add a comment" />
+                        <AddComments id={this.props.bookInfo.asin}/>
                     </Form.Group>
                 }
                 </Card>
