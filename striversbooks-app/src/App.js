@@ -4,7 +4,7 @@ import MyNavbar from './Components/MyNavbar'
 import Welcome from './Components/Welcome'
 import Footer from './Components/Footer'
 import BookList from './Components/BookList'
-import MyBadge from './Components/MyBadge'
+// import MyBadge from './Components/MyBadge'
 import MyWarning from './Components/MyWarning'
 
 
