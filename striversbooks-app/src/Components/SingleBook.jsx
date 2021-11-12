@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import Col from "react-bootstrap/Col";
 import MyBadge from "./MyBadge";
 import CommentArea from "./CommentArea";
-import AddComments from "./AddComments";
 import Form from "react-bootstrap/Form"
 
 class SingleBook extends Component {
@@ -31,16 +30,13 @@ class SingleBook extends Component {
                     {this.props.bookInfo.category} - ${this.props.bookInfo.price} 
                     </Card.Text>
                 </Card.Body>
-                {
-                    this.state.selected && <CommentArea id={this.props.bookInfo.asin}/>
-                }
-                {
-                    this.state.selected && 
-                    <Form.Group>
-                        <AddComments id={this.props.bookInfo.asin}/>
-                    </Form.Group>
-                }
+
                 </Card>
+                {
+                    <Form.Group>
+                        {this.state.selected && <CommentArea id={this.props.bookInfo.asin}/>
+                }  </Form.Group>
+                }
             </Col>
         )
 
