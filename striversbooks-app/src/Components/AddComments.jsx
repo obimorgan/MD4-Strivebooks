@@ -8,10 +8,20 @@ class AddComments extends Component {
     comment: {
       comment: " ",
       rate: 1,
-      elementId: this.props.asin,
-      author: " ",
+      elementId: null,
     },
   };
+  componentDidUpdate (prevProps) {
+    if(prevProps.asin !== this.props.asin) {
+      this.setState({
+        comment: {
+          ...this.state.comment,
+          elementId: this.props.asin
+        }
+      })
+    }
+
+  }
   postComments = async (e) => {
     e.preventDefault()
     try {

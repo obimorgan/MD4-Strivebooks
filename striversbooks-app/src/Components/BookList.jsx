@@ -43,9 +43,13 @@ class BookList extends Component {
                 )
                 .map((b) => (
         
-                        <SingleBook key={b.asin} bookInfo={b} changeSelectedBook={asin => this.setState({
+                        <SingleBook 
+                        key={b.asin} 
+                        bookInfo={b} 
+                        selected={this.state.selected} 
+                        changeSelectedBook={asin => this.setState({
                         selected: asin
-                            })}/>
+                        })}/>
               
                 ))}
             </Row>

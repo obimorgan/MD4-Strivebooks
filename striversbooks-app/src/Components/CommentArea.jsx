@@ -10,15 +10,19 @@ import Error from "./Error";
 class CommentArea extends Component {
   state = {
     comments: [],
-    isLoading: true,
+    isLoading: false,
     isError: false
   };
 
   componentDidUpdate = async (prevProps) => {
+
     if (prevProps.asin !== this.props.asin) {
+      this.setState({
+        isLoading: true
+      })
       try {
         const response = await fetch(
-          "https://striveschool-api.herokuapp.com/api/commens/" +
+          "https://striveschool-api.herokuapp.com/api/comments/" +
             this.props.asin,
           {
             method: "GET",
