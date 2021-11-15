@@ -1,8 +1,7 @@
 /** @format */
 
 import { Component } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button"
+import {Form, Button} from "react-bootstrap";
 
 class AddComments extends Component {
   state = {
@@ -14,8 +13,9 @@ class AddComments extends Component {
     },
   };
   postComments = async (e) => {
+    e.preventDefault()
     try {
-      const response = await fetch(
+      let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/comments",
         {
           method: "POST",
@@ -39,19 +39,18 @@ class AddComments extends Component {
   render() {
     return (
         <div>
-            <Form onSubmit={this.postComment}>
-                <div>Add Comments</div>
+            <Form onSubmit={this.postComments}>
                 <Form.Group>
-                <Form.Label>Your Name</Form.Label>
+                <Form.Label>ADD COMMENTS</Form.Label>
                 <Form.Control
                     type="text"
-                    placeholder="Your name"
-                    value={this.state.comment.author}
+                    placeholder="Add Comment Here"
+                    value={this.state.comment.comment}
                     onChange={(e) =>
                     this.setState({
                         comment: {
                         ...this.state.comment,
-                        author: e.target.value,
+                        comment: e.target.value,
                         },
                     })
                     }
@@ -77,22 +76,6 @@ class AddComments extends Component {
                     <option>4</option>
                     <option>5</option>
                 </Form.Control>
-                </Form.Group>
-                <Form.Group>
-                <Form.Label>Place your comment here.</Form.Label>
-                <Form.Control
-                    as="textarea"
-                    rows={3}
-                    value={this.state.comment.comment}
-                    onChange={(e) =>
-                    this.setState({
-                        comment: {
-                        ...this.state.comment,
-                        comment: e.target.value,
-                        },
-                    })
-                    }
-                />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                 Submit

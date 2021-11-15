@@ -27,9 +27,7 @@ function App() {
       <MyWarning />
       <div className="d-flex">
       <BookList />
-      <div className="flex-column"> 
-      <CommentColumn/>
-      </div>
+
 
       {/* <CommentColumn /> */}
 

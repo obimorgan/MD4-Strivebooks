@@ -1,46 +1,62 @@
 /** @format */
 
-import { Container, Row,} from "react-bootstrap";
-import Form from 'react-bootstrap/Form'
-import {Component} from "react"
+import { Container, Row, Col } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import { Component } from "react";
 import items from "../Data/scify.json";
 import SingleBook from "./SingleBook";
-
-
+import CommentArea from "./CommentArea";
 
 class BookList extends Component {
-    state = {
-      books: items,
-      search: ""
-    }
+  state = {
+    selected: null,
+    books: items,
+    search: "",
+  };
 
-
-    
-    render() {
-        return(
-            <Container>
-                <Row>
-                <Form.Control 
-                    type="text" 
-                    placeholder="Search Books" 
-                    value={this.state.search}
-                    onChange={(e)=> 
-                        this.setState({ search: e.currentTarget.value})}
-                />   
-                </Row>
-                <Row>
-                    {this.state.books
-                    .slice(0,20)
-                    .filter(item => item.title.toLowerCase().indexOf(this.state.search) !== -1 
-                    || item.category.toLowerCase().indexOf(this.state.search) !== -1)
-                    .map(item => (
-                        <SingleBook key={item.asin} bookInfo={item} />
-                    ))}
-                </Row>
-            </Container>
-        )
+  render() {
+    return (
+      <Container>
+        <Row>
+          <Col md={8}>
+            <Row>
+              <Col>
+                <Form.Control
+                  type="text"
+                  placeholder="Search Books"
+                  value={this.state.search}
+                  onChange={(e) =>
+                    this.setState({ search: e.currentTarget.value })
+                  }
+                />
+              </Col>
+            </Row>
+            <Row>
+              {this.state.books
+                .slice(0, 20)
+                .filter(
+                  (b) =>
+                    b.title.toLowerCase().indexOf(this.state.search) !==
+                      -1 ||
+                    b.category.toLowerCase().indexOf(this.state.search) !==
+                      -1
+                )
+                .map((b) => (
         
-    }
+                        <SingleBook key={b.asin} bookInfo={b} changeSelectedBook={asin => this.setState({
+                        selected: asin
+                            })}/>
+              
+                ))}
+            </Row>
+          </Col>
+          <Col md={4}>
+            <CommentArea asin={this.state.selected}/>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
 }
 
 // const Tapestry = (props) => (
