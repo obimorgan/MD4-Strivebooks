@@ -21,7 +21,8 @@ class BookList extends Component {
           <Col md={8}>
             <Row>
               <Col>
-                <Form.Control
+            
+                <Form.Control className="mb-3"
                   type="text"
                   placeholder="Search Books"
                   value={this.state.search}

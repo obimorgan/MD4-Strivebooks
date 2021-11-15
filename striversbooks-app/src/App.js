@@ -24,7 +24,7 @@ function App() {
       />
 
       <Welcome />
-      <MyWarning />
+      {/* <MyWarning /> */}
       <div className="d-flex">
       <BookList />
 
