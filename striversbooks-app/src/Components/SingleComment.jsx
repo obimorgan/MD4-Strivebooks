@@ -1,4 +1,5 @@
 import ListGroup from 'react-bootstrap/ListGroup'
+import { Component } from 'react'
 
 const SingleComment = ({comment}) => (
     <>
