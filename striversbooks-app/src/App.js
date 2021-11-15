@@ -9,6 +9,7 @@ import MyWarning from './Components/MyWarning'
 // import CommentColumn from './Components/CommentColumn'
 import AddComments from './Components/AddComments'
 import SingleComment from './Components/SingleComment'
+import CommentColumn from './Components/CommentColumn'
 
 
 
@@ -27,7 +28,7 @@ function App() {
       <div className="d-flex">
       <BookList />
       <div className="flex-column"> 
-      <AddComments />
+      <CommentColumn/>
       </div>
 
       {/* <CommentColumn /> */}
