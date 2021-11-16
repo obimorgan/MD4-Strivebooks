@@ -6,11 +6,9 @@ import data from "../Data/scify.json";
 import SingleBook from "./SingleBook";
 import CommentArea from "./CommentArea";
 import {useState} from  "react"
-const books = data
+
 const BookList = () => {
-  // const books = data
   const [selected, setSelected] = useState(null)
-  // const [books, setBooks] = useState(data)
   const [search, setSearch] = useState("")
 
     return (
@@ -31,7 +29,7 @@ const BookList = () => {
               </Col>
             </Row>
             <Row>
-              {books
+              {data
                 .slice(0, 20)
                 .filter(
                   (b) =>
