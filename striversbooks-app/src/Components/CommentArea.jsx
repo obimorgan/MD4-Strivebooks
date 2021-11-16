@@ -1,60 +1,61 @@
 /** @format */
 
-import { Component } from "react";
 import CommentsList from "./CommentsList";
 import AddComments from "./AddComments";
 import Loader from "./Loader";
 import Error from "./Error";
 import {useState, useEffect} from "react"
 
-const CommentArea = () => {
+console.log("hello")
 
+const CommentArea = ({asin}) => {
+  
   const [comments, setComments] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
 
-  useEffect((asin) => {
-    if (asin !== asin) {
-      this.setState({
-        isLoading: true
-      })
+  useEffect(() => {
+    const fetchComments = async () => {
       try {
-        const response = fetch(
+        let response = await fetch(
           "https://striveschool-api.herokuapp.com/api/comments/" +
-            asin,
+          asin,
           {
             method: "GET",
             headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhjYmFhY2FhMjAwMTU1MmExNjAiLCJpYXQiOjE2MzU5NDQ2NTEsImV4cCI6MTYzNzE1NDI1MX0.Yx0HpjxBSTDpOzS9KLvXiaWGib-fUvlk1UeiaQ_zQxg",
+              Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhjYmFhY2FhMjAwMTU1MmExNjAiLCJpYXQiOjE2MzU5NDQ2NTEsImV4cCI6MTYzNzE1NDI1MX0.Yx0HpjxBSTDpOzS9KLvXiaWGib-fUvlk1UeiaQ_zQxg",
             },
           }
         );
         if (response.ok) {
-          const data = response.json();
-          console.log(data);
-          setComments({ comments: data})
-          setIsLoading({ isLoading: false})
+          let data = await response.json();
+          console.log(data)
+          setComments(data);
+          
+          setIsLoading(false);
         } else {
-          console.log('error')
-          setIsLoading({isLoading: false })
-          setIsError({isError: true })
+          console.log('error');
+          setIsLoading(false);
+          setIsError(true);
         }
       } catch (error) {
-        console.log(error)
-        
+        console.log(error);
+        setIsLoading(false);
+        setIsError(true);
       }
     }
-  }, [])
-    return (
-      <div>
-        <CommentsList displayComments={comments} />
-        {isLoading && <Loader />}
-        {isError && <Error />}
-        {/* <AddComments asin={asin} /> */}
-      </div>
-    );
-
+    fetchComments()
+    console.log("hello")
+  }, [asin])
+  return (
+    <div>
+      {isLoading && <Loader />}
+      {isError && <Error />}
+      <CommentsList displayComments={comments} />
+      <AddComments asin={asin}/>
+    </div>
+  );
+    
 }
 
 // class CommentArea extends Component {

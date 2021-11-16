@@ -2,61 +2,58 @@
 
 import { Container, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import data from "../Data/scify.json";
 import SingleBook from "./SingleBook";
 import CommentArea from "./CommentArea";
-import {useState} from  "react"
+import { useState } from "react"
 
-const BookList = () => {
+const BookList = ({books}) => {
   const [selected, setSelected] = useState(null)
   const [search, setSearch] = useState("")
 
-    return (
-      <Container>
-        <Row>
-          <Col md={8}>
-            <Row>
-              <Col>
+  return (
+    <Container>
+      <Row>
+        <Col md={8}>
+          <Row>
+            <Col>
             
-                <Form.Control className="mb-3"
-                  type="text"
-                  placeholder="Search Books"
-                  value={search}
-                  onChange={(e) =>
-                    setSearch(e.currentTarget.value)
-                  }
-                />
-              </Col>
-            </Row>
-            <Row>
-              {data
-                .slice(0, 20)
-                .filter(
-                  (b) =>
-                    b.title.toLowerCase().indexOf(search) !==
-                      -1 ||
-                    b.category.toLowerCase().indexOf(search) !==
-                      -1
-                )
-                .map((b) => (
-        
-                        <SingleBook 
-                        key={b.asin} 
-                        bookInfo={b} 
-                        selected={selected} 
-                        changeSelectedBook={asin => setSelected({
-                        asin
-                        })}/>
-              
-                ))}
-            </Row>
-          </Col>
-          <Col md={4}>
-            <CommentArea asin={selected}/>
-          </Col>
-        </Row>
-      </Container>
-    );
+              <Form.Control className="mb-3"
+                type="text"
+                placeholder="Search Books"
+                value={search}
+                onChange={(e) =>
+                  setSearch(e.currentTarget.value)
+                }
+              />
+            </Col>
+          </Row>
+          <Row>
+            {books
+              // .slice(0, 20)
+              .filter(
+                (b) =>
+                  b.title.toLowerCase().indexOf(search) !==
+                  -1 ||
+                  b.category.toLowerCase().indexOf(search) !==
+                  -1
+              )
+              .map((b) => (
+
+                <SingleBook
+                  key={b.asin}
+                  bookInfo={b}
+                  selected={selected}
+                  changeSelectedBook={asin => setSelected(asin)} />
+              ))}
+          </Row>
+        </Col>
+        <Col md={4}>
+         <CommentArea asin={selected}/>
+
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
 
@@ -74,7 +71,7 @@ const BookList = () => {
 //           <Col md={8}>
 //             <Row>
 //               <Col>
-            
+
 //                 <Form.Control className="mb-3"
 //                   type="text"
 //                   placeholder="Search Books"
@@ -96,7 +93,7 @@ const BookList = () => {
 //                       -1
 //                 )
 //                 .map((b) => (
-        
+
 //                         <SingleBook 
 //                         key={b.asin} 
 //                         bookInfo={b} 
@@ -104,7 +101,7 @@ const BookList = () => {
 //                         changeSelectedBook={asin => this.setState({
 //                         selected: asin
 //                         })}/>
-              
+
 //                 ))}
 //             </Row>
 //           </Col>

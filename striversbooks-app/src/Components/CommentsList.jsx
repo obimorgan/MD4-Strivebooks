@@ -6,28 +6,23 @@ import Alert from 'react-bootstrap/Alert'
 
 
 const CommentsList = ({displayComments}) => (
-    // <ListGroup.Item>
-    //     {
-    //         displayComments.map((comment) => (
-    //         <SingleComment key={comment._id} comment={comment} />
-    //     ))
-    //     }
-    // </ListGroup.Item>
-    <>
-        <h5>Click on the book to see comments bellow.</h5>
+    
+    <div>
+        {console.log("comment")}
+        
         <Alert variant={"success"}>
-            comments should be mapped() here
+            Check out some comments below.
         </Alert>
         {
             displayComments.map((comment) => (
-                <ListGroup.Item key={comment._id} >
+                <ListGroup.Item>
                     <SingleComment comment={comment} />
                 </ListGroup.Item>
             ))
 
         }
 
-    </>
+    </div>
 
 );
 

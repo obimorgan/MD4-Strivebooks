@@ -4,6 +4,7 @@ import MyNavbar from './Components/MyNavbar'
 import Welcome from './Components/Welcome'
 import Footer from './Components/Footer'
 import BookList from './Components/BookList'
+import data from "./Data/scify.json";
 
 
 
@@ -18,7 +19,7 @@ function App() {
       />
       <Welcome />
       <div className="d-flex">
-      <BookList />
+      <BookList books={data}/>
       </div>
       <Footer />
     </div>

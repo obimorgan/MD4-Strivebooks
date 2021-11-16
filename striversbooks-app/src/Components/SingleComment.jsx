@@ -20,12 +20,14 @@ const deleteComment = async (asin) => {
 }
 
 const SingleComment = ({comment}) => (
+    <>
+        
         <ListGroup.Item className="flex-column">
         <Alert variant={"success"}>
             comments should be showned here here
         </Alert>
             <div>
-                Comments: {comment}
+                Comments: {comment.comment}
             </div>
             <div className="d-flex justify-content-between">
                 <div>
@@ -36,8 +38,8 @@ const SingleComment = ({comment}) => (
                     onClick={() => deleteComment(comment._id)}>Delete</Button>
                 </div>
             </div>
-
         </ListGroup.Item>
+    </>    
 )
 
 export default SingleComment
