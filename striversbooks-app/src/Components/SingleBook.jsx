@@ -2,11 +2,8 @@
 import Card from "react-bootstrap/Card";
 import React, { Component } from "react";
 import Col from "react-bootstrap/Col";
-import {useState} from 'react'
 
 const SingleBook = (props) => {
-
-
         return (
             <Col  className="col-md-3" >
                 <Card

@@ -1,4 +1,5 @@
 import {ListGroup, Button} from 'react-bootstrap'
+import Alert from 'react-bootstrap/Alert'
 
 const deleteComment = async (asin) => {
     try {
@@ -20,8 +21,11 @@ const deleteComment = async (asin) => {
 
 const SingleComment = ({comment}) => (
         <ListGroup.Item className="flex-column">
+        <Alert variant={"success"}>
+            comments should be showned here here
+        </Alert>
             <div>
-                Comments: {comment.comment}
+                Comments: {comment}
             </div>
             <div className="d-flex justify-content-between">
                 <div>

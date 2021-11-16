@@ -2,8 +2,10 @@
 
 import ListGroup from "react-bootstrap/ListGroup";
 import SingleComment from "./SingleComment";
+import Alert from 'react-bootstrap/Alert'
 
-const CommentsList = ({ displayComments }) => (
+
+const CommentsList = ({displayComments}) => (
     // <ListGroup.Item>
     //     {
     //         displayComments.map((comment) => (
@@ -12,16 +14,19 @@ const CommentsList = ({ displayComments }) => (
     //     }
     // </ListGroup.Item>
     <>
-         <h5>Click on the book to see comments bellow.</h5>       
+        <h5>Click on the book to see comments bellow.</h5>
+        <Alert variant={"success"}>
+            comments should be mapped() here
+        </Alert>
         {
             displayComments.map((comment) => (
                 <ListGroup.Item key={comment._id} >
                     <SingleComment comment={comment} />
                 </ListGroup.Item>
             ))
-        
+
         }
-            
+
     </>
 
 );
