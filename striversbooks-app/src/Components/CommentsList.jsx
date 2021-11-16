@@ -8,14 +8,12 @@ import Alert from 'react-bootstrap/Alert'
 const CommentsList = ({displayComments}) => (
     
     <div>
-        {console.log("comment")}
-        
         <Alert variant={"success"}>
             Check out some comments below.
         </Alert>
         {
             displayComments.map((comment) => (
-                <ListGroup.Item>
+                <ListGroup.Item key={comment._id}>
                     <SingleComment comment={comment} />
                 </ListGroup.Item>
             ))

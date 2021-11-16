@@ -6,7 +6,7 @@ import {Form, Button} from "react-bootstrap";
 
 const AddComments = ({asin}) => {
   const [comment, setComment] = useState({
-    comment: "",
+    comment: '',
     rate: 1,
     elementId: null
   })
@@ -16,7 +16,7 @@ const AddComments = ({asin}) => {
       elementId: asin
     })) 
     }, [asin])
-    
+
     const postComments = async (e) => {
       e.preventDefault()
       try {

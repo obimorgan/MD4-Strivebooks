@@ -6,6 +6,7 @@ const SingleBook = ({changeSelectedBook, selected, bookInfo}) => {
         return (
             <Col  className="col-md-3" >
                 <Card
+                key={bookInfo.asin}
                 onClick={() => changeSelectedBook(bookInfo.asin)}
                 
                 style={{ boxShadow: selected === bookInfo.asin ? "rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px" : "none"}}
