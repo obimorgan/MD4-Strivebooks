@@ -3,7 +3,7 @@ import { Alert } from "react-bootstrap";
 const Error = () => {
     return (
         <Alert variant={"danger"}>
-        404 Not found.
+        Error: Sorry comments are not available!
         </Alert>
     )
 }
