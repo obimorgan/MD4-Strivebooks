@@ -8,9 +8,10 @@ import Footer from "./Components/Footer";
 import BookList from "./Components/BookList";
 import data from "./Data/scify.json";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import About from "./Components/About/About";
-import BookDetails from "./Components/BookDetails/BookDetails";
-import NotFound from "./Components/Notfound";
+import About from "./Components/About/About"
+import BookDetails from "./Components/BookDetails/BookDetails"
+import NotFound from "./Components/Notfound"
+
 
 function App() {
   return (
@@ -19,15 +20,27 @@ function App() {
         brand="Strivers-Books"
         homelink="Home"
         aboutlink="About"
-        bookdetailslink="Book Details"
+        browselink="Book Details"
       />
-      <Welcome/>
-      <BookList books={data}/>
       <Routes>
-        {/* <Route path="/" element={((<Welcome />), (<BookList books={data}/>))} /> */}
-        <Route path="/about" element={<About />} />
-        <Route path="/book-details" element={<BookDetails />} />
-        <Route path="*" element={<NotFound />} />
+        <Route
+          path="/"
+          element={
+            ((
+              <div>
+                <Welcome />
+              </div>
+            ),
+            (
+              <div className="d-flex">
+                <BookList books={data} />
+              </div>
+            ))
+          }
+        />
+        <Route path="/about" element={<About/>} />
+        <Route path="/book-details" element={<BookDetails/>} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
       <Footer />
     </BrowserRouter>
