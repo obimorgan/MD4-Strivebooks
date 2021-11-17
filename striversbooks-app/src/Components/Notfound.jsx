@@ -1,6 +1,6 @@
 import { Alert } from "react-bootstrap";
 
-const Error = () => {
+const NotFound = () => {
     return (
         <Alert variant={"danger"}>
         404 Not found.
@@ -9,4 +9,4 @@ const Error = () => {
 }
 
 
-export default Error
+export default NotFound

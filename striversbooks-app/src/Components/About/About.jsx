@@ -1,12 +1,12 @@
 import { Alert } from "react-bootstrap";
 
-const Error = () => {
+const About = () => {
     return (
         <Alert variant={"danger"}>
-        404 Not found.
+        About
         </Alert>
     )
 }
 
 
-export default Error
+export default About
