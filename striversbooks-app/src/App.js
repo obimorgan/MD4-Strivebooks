@@ -7,14 +7,14 @@ import Welcome from "./Components/Welcome";
 import Footer from "./Components/Footer";
 import BookList from "./Components/BookList";
 import data from "./Data/scify.json";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import About from "./Components/About/About";
 import BookDetails from "./Components/BookDetails/BookDetails";
 import NotFound from "./Components/Notfound";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <MyNavbar
         brand="Strivers-Books"
         homelink="Home"
@@ -23,14 +23,8 @@ function App() {
       />
       <Welcome/>
       <BookList books={data}/>
-      <Routes>
-        {/* <Route path="/" element={((<Welcome />), (<BookList books={data}/>))} /> */}
-        <Route path="/about" element={<About />} />
-        <Route path="/book-details" element={<BookDetails />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 
