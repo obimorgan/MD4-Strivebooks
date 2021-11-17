@@ -30,7 +30,7 @@ const BookList = ({books}) => {
           </Row>
           <Row>
             {books
-              .slice(0, 20)
+              // .slice(0, 20)
               .filter(
                 (b) =>
                   b.title.toLowerCase().indexOf(search) !==
