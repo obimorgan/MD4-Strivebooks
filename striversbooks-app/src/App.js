@@ -8,7 +8,7 @@ import Footer from "./Components/Footer";
 import BookList from "./Components/BookList";
 import data from "./Data/scify.json";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Registration from "./Components/Registration";
+import Registration from "./Components/FormSolution/Registration";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
               </>
             }
           />
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/registration" element={<Registration/>}/>
         </Routes>
       </BrowserRouter>
       {/* <Footer /> */}
