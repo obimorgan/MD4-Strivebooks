@@ -56,6 +56,15 @@ const Registration = () => {
                   <p className="help is-danger">{errors.password}</p>
                 )}
               </div>
+              <div className="field">
+                <label className="label">Confirm Password</label>
+                <div className="control">
+                  <input className={`input ${errors.passwordConfirm && 'is-danger'}`} type="passwordConfirm" name="passwordConfirm" onChange={handleChange} value={values.passwordConfirm || ''} required />
+                </div>
+                {errors.passwordConfirm && (
+                  <p className="help is-danger">{errors.passwordConfirm}</p>
+                )}
+              </div>
               <button type="submit" className="button is-block is-info is-fullwidth">Submit</button>
             </form>
           </div>
