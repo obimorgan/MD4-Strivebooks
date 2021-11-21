@@ -9,6 +9,7 @@ import BookList from "./Components/BookList";
 import data from "./Data/scify.json";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Registration from "./Components/FormSolution/Registration";
+import FormDetailsPage from "./Components/FormSolution/FormDetailsPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             }
           />
           <Route path="/registration" element={<Registration/>}/>
+          <Route path="/formdetails" element={<FormDetailsPage/>}/>
         </Routes>
       </BrowserRouter>
       {/* <Footer /> */}
