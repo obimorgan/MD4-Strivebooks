@@ -3,16 +3,33 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { Component } from "react";
-import items from "../Data/scify.json";
+
 import SingleBook from "./SingleBook";
 import CommentArea from "./CommentArea";
+
+// const url = "https://hw-m6d5.herokuapp.com/products"
 
 class BookList extends Component {
   state = {
     selected: null,
-    books: items,
+    products: [],
     search: "",
   };
+
+  componentDidMount = async () => {
+    try {
+      console.log("get")
+      const response = await fetch("https://hw-m6d5.herokuapp.com/products/")
+      if(response.ok){
+        const data = await response.json()
+        this.setState({ products: data })
+      }else {
+        console.log(console.error)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   render() {
     return (
@@ -24,7 +41,7 @@ class BookList extends Component {
             
                 <Form.Control className="mb-3"
                   type="text"
-                  placeholder="Search Books"
+                  placeholder="Search Product"
                   value={this.state.search}
                   onChange={(e) =>
                     this.setState({ search: e.currentTarget.value })
@@ -33,30 +50,29 @@ class BookList extends Component {
               </Col>
             </Row>
             <Row>
-              {this.state.books
-                .slice(0, 20)
+              {this.state.products
                 .filter(
-                  (b) =>
-                    b.title.toLowerCase().indexOf(this.state.search) !==
+                  (product) =>
+                    product.product_name.toLowerCase().indexOf(this.state.search) !==
                       -1 ||
-                    b.category.toLowerCase().indexOf(this.state.search) !==
+                    product.categories[0].name.toLowerCase().indexOf(this.state.search) !==
                       -1
                 )
-                .map((b) => (
+                .map((product) => (
         
                         <SingleBook 
-                        key={b.asin} 
-                        bookInfo={b} 
+                        key={product.id} 
+                        product={product} 
                         selected={this.state.selected} 
-                        changeSelectedBook={asin => this.setState({
-                        selected: asin
+                        changeSelectedBook={id => this.setState({
+                        selected: id
                         })}/>
               
                 ))}
             </Row>
           </Col>
           <Col md={4}>
-            <CommentArea asin={this.state.selected}/>
+            <CommentArea id={this.state.selected}/>
           </Col>
         </Row>
       </Container>
@@ -64,30 +80,4 @@ class BookList extends Component {
   }
 }
 
-// const Tapestry = (props) => (
-//   <Container>
-//     <h1>Latest Release</h1>
-//     <Row>
-//       <Col className="d-flex flex-wrap">
-//         {items.map((item) => (
-//           <Card
-//             style={{ width: "10rem", height: "15rem"}}
-//             className="px-n1"
-//             key={item.asin}
-//           >
-//             <Card.Img variant="top" src={item.img} className="img-fluid" />
-//             {/* <Card.Body> */}
-//               {/* <Card.Title className="mx-n3 my-n2">{item.title}</Card.Title> */}
-//               {/* <Card.Text>
-//                 Some quick example text to build on the card title and make up
-//                 the bulk of the card's content.
-//               </Card.Text> */}
-//               {/* <Button variant="primary">Go somewhere</Button> */}
-//             {/* </Card.Body> */}
-//           </Card>
-//         ))}
-//       </Col>
-//     </Row>
-//   </Container>
-// );
 export default BookList;

@@ -16,12 +16,7 @@ import CommentColumn from './Components/CommentColumn'
 function App() {
   return (
     <div>
-      <MyNavbar 
-      brand="Strivers-Books"
-      homelink="Home"
-      aboutlink="About"
-      browselink="browse"
-      />
+      <MyNavbar/>
 
       <Welcome />
       {/* <MyWarning /> */}
