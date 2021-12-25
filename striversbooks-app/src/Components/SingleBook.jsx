@@ -26,9 +26,10 @@ class SingleBook extends Component {
         return (
             <Col  className="col-md-3" >
                 <Card
-                onClick={() => this.props.changeSelectedBook(this.props.product.id)}
+                key={this.props.product.id}
+                onClick={() => this.props.changeSelectedProduct(this.props.product.id)}
       
-                style={{ boxShadow: this.props.selected === this.props.product.id ? "rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px" : "none"}}
+                style={{ boxShadow: this.props.selected === this.props.product.id? "rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px" : "none"}}
                 >
                 {/* {
                     this.state.selected && <MyBadge />

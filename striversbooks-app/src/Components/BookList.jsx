@@ -5,11 +5,12 @@ import Form from "react-bootstrap/Form";
 import { Component } from "react";
 
 import SingleBook from "./SingleBook";
-import CommentArea from "./CommentArea";
+import CommentsList from "./CommentsList";
 
 // const url = "https://hw-m6d5.herokuapp.com/products"
 
 class BookList extends Component {
+
   state = {
     selected: null,
     products: [],
@@ -18,11 +19,11 @@ class BookList extends Component {
 
   componentDidMount = async () => {
     try {
-      console.log("get")
       const response = await fetch("https://hw-m6d5.herokuapp.com/products/")
       if (response.ok) {
         const data = await response.json()
         this.setState({ products: data })
+        console.log("my data:", data)
       } else {
         console.log(console.error)
       }
@@ -60,14 +61,15 @@ class BookList extends Component {
                 key={product.id}
                 product={product}
                 selected={this.state.selected}
-                changeSelectedBook={id => this.setState({
+                changeSelectedProduct={(id) => this.setState({
                   selected: id
                 })} />
             ))}
-
           <Col>
             {
-              this.state.selected && <CommentArea id={this.state.selected} />
+              this.state.selected && this.state.products.map((product) => (
+                <CommentsList reviews={product.reviews} />
+              ))
             }
           </Col>
         </Row>
