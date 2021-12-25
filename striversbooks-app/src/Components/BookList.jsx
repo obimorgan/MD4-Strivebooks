@@ -20,10 +20,10 @@ class BookList extends Component {
     try {
       console.log("get")
       const response = await fetch("https://hw-m6d5.herokuapp.com/products/")
-      if(response.ok){
+      if (response.ok) {
         const data = await response.json()
         this.setState({ products: data })
-      }else {
+      } else {
         console.log(console.error)
       }
     } catch (error) {
@@ -34,45 +34,41 @@ class BookList extends Component {
   render() {
     return (
       <Container>
-        <Row>
-          <Col md={8}>
-            <Row>
-              <Col>
-            
-                <Form.Control className="mb-3"
-                  type="text"
-                  placeholder="Search Product"
-                  value={this.state.search}
-                  onChange={(e) =>
-                    this.setState({ search: e.currentTarget.value })
-                  }
-                />
-              </Col>
-            </Row>
-            <Row>
-              {this.state.products
-                .filter(
-                  (product) =>
-                    product.product_name.toLowerCase().indexOf(this.state.search) !==
-                      -1 ||
-                    product.categories[0].name.toLowerCase().indexOf(this.state.search) !==
-                      -1
-                )
-                .map((product) => (
-        
-                        <SingleBook 
-                        key={product.id} 
-                        product={product} 
-                        selected={this.state.selected} 
-                        changeSelectedBook={id => this.setState({
-                        selected: id
-                        })}/>
-              
-                ))}
-            </Row>
+        <div className=" d-flex justify-content-center">
+          <Col>
+            <Form.Control className="mb-3"
+              type="text"
+              placeholder="Search Product"
+              value={this.state.search}
+              onChange={(e) =>
+                this.setState({ search: e.currentTarget.value })
+              }
+            />
           </Col>
-          <Col md={4}>
-            <CommentArea id={this.state.selected}/>
+        </div>
+        <Row>
+          {this.state.products
+            .filter(
+              (product) =>
+                product.product_name.toLowerCase().indexOf(this.state.search) !==
+                -1 ||
+                product.categories[0].name.toLowerCase().indexOf(this.state.search) !==
+                -1
+            )
+            .map((product) => (
+              <SingleBook
+                key={product.id}
+                product={product}
+                selected={this.state.selected}
+                changeSelectedBook={id => this.setState({
+                  selected: id
+                })} />
+            ))}
+
+          <Col>
+            {
+              this.state.selected && <CommentArea id={this.state.selected} />
+            }
           </Col>
         </Row>
       </Container>

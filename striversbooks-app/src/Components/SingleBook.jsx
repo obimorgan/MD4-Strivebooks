@@ -9,6 +9,19 @@ class SingleBook extends Component {
     // state = {
     //     selected: false,
     // }
+
+    // handleAddToCart = async () => {
+    //     try {
+    //         const response = await fetch(`https://hw-m6d5.herokuapp.com/shoppingcart/${productId}/${userId}`, {
+    //             method: POST,
+    //             body: JSON.stringify({})
+    //         })
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+    
+
     render() {
         return (
             <Col  className="col-md-3" >
@@ -28,9 +41,9 @@ class SingleBook extends Component {
                     <Card.Text>
                     {this.props.product.categories[0].name} - ${this.props.product.price} 
                     </Card.Text>
-                    <Button className="danger"
-                        onClick={() => this.props.selected(this.props.product.id)}>
-                        Add to cart</Button>
+                    {/* <Button variant="success"
+                        onClick={() => handleAddToCart()}>
+                        Add to cart</Button> */}
                 </Card.Body>
 
                 </Card>
