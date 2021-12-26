@@ -4,8 +4,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 // import { Button } from "react-bootstrap";
 // import { useEffect } from "react";
 
-const CommentsList = ({ reviews }) => {
-    console.log(reviews)
+const CommentsList = ({ review }) => {
+    console.log(review)
     // useEffect(() => {
     //     deleteComment()
     // }, [])
@@ -26,20 +26,17 @@ const CommentsList = ({ reviews }) => {
     // }
     return (
         <>
-            <h5>Click on the book to see comments bellow.</h5>
-            {reviews?.map(review => (
-                <ListGroup.Item key={review.id}  className="flex-column">
-                    <div >
-                        Comments: {review.text}
-                    </div>
-                    <div className="d-flex justify-content-between">
-                        {/* <div>
+            <ListGroup.Item className="flex-column">
+                <div >
+                    {review.text}
+                </div>
+                <div className="d-flex justify-content-between">
+                    {/* <div>
                         <Button variant="danger"
                             onClick={() => deleteComment}>Delete</Button>
                     </div> */}
-                    </div>
-                </ListGroup.Item>
-            ))}
+                </div>
+            </ListGroup.Item>
         </>
     )
 }

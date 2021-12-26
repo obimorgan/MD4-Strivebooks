@@ -65,13 +65,6 @@ class BookList extends Component {
                   selected: id
                 })} />
             ))}
-          <Col>
-            {
-              this.state.selected && this.state.products.map((product) => (
-                <CommentsList reviews={product.reviews} />
-              ))
-            }
-          </Col>
         </Row>
       </Container>
     );

@@ -1,14 +1,12 @@
 /** @format */
 import Card from "react-bootstrap/Card";
 import React, { Component } from "react";
-import {Col, Button }from "react-bootstrap";
+import { Col, Button, Row } from "react-bootstrap";
+import CommentsList from "./CommentsList";
 // import MyBadge from "./MyBadge";
 // import Form from "react-bootstrap/Form"
 
 class SingleBook extends Component {
-    // state = {
-    //     selected: false,
-    // }
 
     // handleAddToCart = async () => {
     //     try {
@@ -20,40 +18,39 @@ class SingleBook extends Component {
     //         console.log(error)
     //     }
     // }
-    
 
     render() {
         return (
-            <Col  className="col-md-3" >
-                <Card
-                key={this.props.product.id}
-                onClick={() => this.props.changeSelectedProduct(this.props.product.id)}
-      
-                style={{ boxShadow: this.props.selected === this.props.product.id? "rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px" : "none"}}
-                >
-                {/* {
-                    this.state.selected && <MyBadge />
-                } */}
-                <Card.Img variant="top" src={this.props.product.image_url} 
-                
-                />
-                <Card.Body>
-                    <Card.Text>{this.props.product.product_name}</Card.Text>
-                    <Card.Text>
-                    {this.props.product.categories[0].name} - ${this.props.product.price} 
-                    </Card.Text>
-                    {/* <Button variant="success"
-                        onClick={() => handleAddToCart()}>
-                        Add to cart</Button> */}
-                </Card.Body>
+            <>
+                <Row>
+                    <Col className="col-md-3" >
+                        <Card
+                            key={this.props.product.id}
+                            onClick={() => this.props.changeSelectedProduct(this.props.product.id)}
+                            style={{ boxShadow: this.props.selected === this.props.product.id ? "rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px" : "none" }}
+                        >
+                            <Card.Img variant="top" src={this.props.product.image_url}
 
-                </Card>
-                {/* {
-                    <Form.Group>
-                        {this.state.selected && <CommentArea id={this.props.product.id}/>
-                }  </Form.Group>
-                } */}
-            </Col>
+                            />
+                            <Card.Body>
+                                <Card.Text>{this.props.product.product_name}</Card.Text>
+                                <Card.Text>
+                                    {this.props.product.categories[0].name} - ${this.props.product.price}
+                                </Card.Text>
+                                {/* <Button variant="success"
+                                onClick={() => handleAddToCart()}>
+                                Add to cart</Button> */}
+                            </Card.Body>
+                        </Card>
+                    </Col>
+
+                    <Col>
+                        {this.props.selected && this.props.product.reviews?.map((review) =>
+                            <CommentsList review={review} />
+                        )}
+                    </Col>
+                </Row>
+            </>
         )
 
     }
